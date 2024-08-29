@@ -1,66 +1,104 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Here's how the README file can be formatted with the provided data:
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+---
 
-## About Laravel
+# Blog Post Management API
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+These endpoints manage the creation, retrieval, updating, and deletion of blog posts on the platform. They allow both users and admins to interact with the blog's content.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Endpoints
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Retrieve Number of Posts
 
-## Learning Laravel
+**Endpoint:**  
+`GET http://127.0.0.1:8000/api/admin/posts/count`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Description:**  
+Returns the total number of blog posts on the platform.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**Authorization:**  
+- Bearer Token
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Headers:**
+- `Accept: application/json`
 
-## Laravel Sponsors
+**Body:**  
+No body is required for this request.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+**Example Request:**
 
-### Premium Partners
+```bash
+curl --location --request GET 'http://127.0.0.1:8000/api/admin/posts/count' \
+--header 'Accept: application/json' \
+--data '{}'
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+**Example Response:**
 
-## Contributing
+- No response body.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+### 2. Retrieve Single Post
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+**Endpoint:**  
+`GET http://127.0.0.1:8000/api/admin/posts/7`
 
-## Security Vulnerabilities
+**Description:**  
+Retrieves a single blog post using its unique ID.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**Authorization:**  
+- Bearer Token
 
-## License
+**Headers:**
+- `Accept: application/json`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**Body:**  
+No body is required for this request.
+
+**Example Request:**
+
+```bash
+curl --location --request GET 'http://127.0.0.1:8000/api/admin/posts/7' \
+--header 'Accept: application/json' \
+--data '{}'
+```
+
+**Example Response:**
+
+- No response body.
+
+---
+
+### 3. Delete Single Post
+
+**Endpoint:**  
+`DELETE http://127.0.0.1:8000/api/admin/posts/3`
+
+**Description:**  
+Deletes a single blog post by its ID. This action is only accessible by the author or an admin.
+
+**Authorization:**  
+- Bearer Token
+
+**Headers:**
+- `Accept: application/json`
+
+**Body:**  
+No body is required for this request.
+
+**Example Request:**
+
+```bash
+curl --location --request DELETE 'http://127.0.0.1:8000/api/admin/posts/3' \
+--header 'Accept: application/json' \
+--data '{}'
+```
+
+**Example Response:**
+
+- No response body.
+
+---
+
+This README file now contains clear documentation for the API endpoints related to blog post management.
